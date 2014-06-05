@@ -1,0 +1,152 @@
+//
+//  KiiAnalytics.h
+//  KiiAnalytics
+//
+//  Copyright (c) 2013 Kii Corporation. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+#import "KAGroupedResult.h"
+#import "KAGroupedSnapShot.h"
+#import "KAResultQuery.h"
+#import "KAFilter.h"
+#import "KADateRange.h"
+
+enum {
+    kiiAnalyticsSiteUS,
+    kiiAnalyticsSiteJP,
+    kiiAnalyticsSiteCN
+};
+typedef NSUInteger KiiAnalyticsSite;
+
+typedef void (^KAResultBlock)(KAGroupedResult *results, NSError *error);
+
+/** The main SDK class
+ 
+ This class must be initialized on application launch using beginWithID:andKey:. This class also allows the application to make some high-level user calls and access some application-wide data at any time using static methods.
+ */
+@interface KiiAnalytics : NSObject
+
+/** Initialize the KiiAnalytics SDK
+ 
+ Should reside in applicationDidFinishLaunching:withResult:
+ @param appId The application ID found in your Kii developer console
+ @param appKey The application key found in your Kii developer console
+ */
++ (void) beginWithID:(NSString*)appId andKey:(NSString*)appKey;
+
+/** Initialize the KiiAnalytics SDK
+ 
+ Should reside in applicationDidFinishLaunching:withResult:
+ If Kii has provided a custom URL, use this initializer to set it
+ @param appId The application ID found in your Kii developer console
+ @param appKey The application key found in your Kii developer console
+ @param kiiSite One of the enumerator constants kiiAnalyticsSiteUS (United States), kiiAnalyticsSiteJP (Japan) or kiiAnalyticsSiteCN (China), based on your desired location.
+ */
++ (void) beginWithID:(NSString*)appId andKey:(NSString*)appKey andSite:(KiiAnalyticsSite)kiiSite;
+
+
+/** Log a single event to be uploaded to KiiAnalytics
+ 
+ Use this method if you'd like to track an event by name only. If you'd like to track other attributes/dimensions, please use trackEvent:withExtras:
+ Will return TRUE every time unless there was an error writing to the cache.
+ @param event A string representing the event name for later tracking. This must not nil or empty, and length must be less than or equals 128bytes in UTF-8.
+ @return TRUE if the event was added properly, FALSE otherwise
+ */
++ (BOOL) trackEvent:(NSString*)event;
+
+
+/** Log a single event to be uploaded to KiiAnalytics
+ 
+ Use this method if you'd like to track an event by name and add extra information to the event.
+ Will return TRUE every time unless there was an error writing to the cache OR if one of the extra key/value pairs was not JSON-encodable.
+ @param event A string representing the event name for later tracking. This must not nil or empty, and length must be less than or equals 128bytes in UTF-8.
+ @param extras A dictionary of JSON-encodable key/value pairs to be attached to the event
+ @return TRUE if the event was added properly, FALSE otherwise
+ */
++ (BOOL) trackEvent:(NSString *)event withExtras:(NSDictionary*)extras;
+
+/** Get a result set of analytics based on a specific query.
+
+ This method allows you to use analytics results within your application. This method is blocking.
+ Here is a sample snippet that get analytics data and output it to console log.
+
+ If you want to know more information of this analytics data,
+ please see the GroupedResult item in [Flex analytics Guide](http://documentation.kii.com/en/guides/rest/managing-analytics/flex-analytics/analyze-application-data/)
+
+    NSError *error = nil;
+    KAGroupedResult *results = [KiiAnalytics getResultSynchronousWithID:@"my-aggregation-rule" andQuery:myQuery andError:&error];
+    if (error != nil) {
+        // There is something wrong...
+        return;
+    }
+    NSLog(@"Got results: %@", results);
+
+    // Get snapshots array
+    NSArray *snapshotArray = results.snapshots;
+    for (KAGroupedSnapShot *snapshot in snapshotArray) {
+        // Get the label of the dimension/grouping key.
+        NSLog(@"Name : %@", snapshot.name);
+        // Get the date in which the data starts.
+        NSLog(@"PointStart : %f", snapshot.pointStart);
+        // Get interval between data points.
+        NSLog(@"PointInterval : %f", snapshot.pointInterval);
+        // Get the JSON Array that contains the data retrieved by the query.
+        for (NSNumber *data in snapshot.data) {
+            NSLog(@"Data : %@", data);
+        }
+    }
+
+
+ @param aggregationRuleID The aggregation rule to slice data by
+ @param query The query object to use for retrieving data
+ @param error An NSError object, set to nil, to test for errors
+ @return A result object with the segmented data broken into manageable data structures. Usually KAGroupedSnapShots.
+ */
++ (KAGroupedResult*) getResultSynchronousWithID:(NSString*)aggregationRuleID
+                                       andQuery:(KAResultQuery*)query
+                                       andError:(NSError**)error;
+
+
+/** Get a result set of analytics based on a specific query.
+
+ This method allows you to use analytics results within your application. This method is non-blocking.
+ Here is a sample snippet that get analytics data and output it to console log.
+
+ If you want to know more information of this analytics data,
+ please see the GroupedResult item in [Flex analytics Guide](http://documentation.kii.com/en/guides/rest/managing-analytics/flex-analytics/analyze-application-data/)
+
+    [KiiAnalytics getResultWithID:@"my-aggregation-rule"
+                         andQuery:myQuery
+                         andBlock:^(KAGroupedResult *results, NSError *error) {
+        if (error != nil) {
+            // There is something wrong...
+            return;
+        }
+        NSLog(@"Got results: %@", results);
+
+        // Get snapshots array
+        NSArray *snapshotArray = results.snapshots;
+        for (KAGroupedSnapShot *snapshot in snapshotArray) {
+            // Get the label of the dimension/grouping key.
+            NSLog(@"Name : %@", snapshot.name);
+            // Get the date in which the data starts.
+            NSLog(@"PointStart : %f", snapshot.pointStart);
+            // Get interval between data points.
+            NSLog(@"PointInterval : %f", snapshot.pointInterval);
+            // Get the JSON Array that contains the data retrieved by the query.
+            for (NSNumber *data in snapshot.data) {
+                NSLog(@"Data : %@", data);
+            }
+        }
+ 
+ @param aggregationRuleID The aggregation rule to slice data by
+ @param query The query object to use for retrieving data
+ @param block The block to be called upon method completion. See example
+ */
++ (void) getResultWithID:(NSString*)aggregationRuleID
+                andQuery:(KAResultQuery*)query
+                andBlock:(KAResultBlock)block;
+
+@end
