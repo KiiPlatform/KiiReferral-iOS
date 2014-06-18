@@ -17,13 +17,20 @@
 
 @implementation ViewController
 
+// called when the user hits the share button
 - (IBAction)showShareDialog:(id)sender
 {
-//    NSDictionary *myDataDict = @{@"user_type": @"pro", @"player_score": [NSNumber numberWithInteger:293]};
-    
-//    KRShareViewController *vc = [KRShareViewController shareViewWithConfigurationKey:@"points_earned"];
+    // initialize the share view
     KRShareViewController *vc = [KRShareViewController shareView];
-    //    [vc setCustomInfo:myDataDict];
+
+    // Alternatively use the following method to use a custom configuration key
+//    KRShareViewController *vc = [KRShareViewController shareViewWithConfigurationKey:@"points_earned"];
+
+    // Set custom information using  to track more information about the share and the referral
+//    NSDictionary *myDataDict = @{@"user_type": @"pro", @"player_score": [NSNumber numberWithInteger:293]};
+//    [vc setCustomInfo:myDataDict];
+    
+    // show the share view
     [self presentViewController:vc animated:TRUE completion:nil];
 }
 

@@ -65,6 +65,10 @@
     [KiiReferral beginWithAppID:kiiAppID
                          andKey:kiiAppKey];
     
+    // forces the configuration to be pulled from the server.
+    // by default, configuration is only pulled periodically.
+    // this method should be for testing only and should be
+    // removed before going into production.
     [KiiReferral forceConfigRefresh];
     
     // use this to turn on logging while we're developing
