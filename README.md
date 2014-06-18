@@ -18,4 +18,4 @@ If you don't yet have a **Kii** account, don't worry - it's simple and free to g
 # <a name="setup-usage"/>Setup & Usage
 Getting started is easy, and as with **Kii**'s cloud SDKs - the methods and classes are simple and powerful so you can implement using only a few lines of code.
 
-Please visit [the wiki](https://github.com/KiiPlatform/KiiReferral-iOS/wiki) for full implementation guides and references.
+Please visit [the wiki](https://github.com/KiiPlatform/KiiReferral-iOS/wiki) for full implementation guides. For class references, see docs/html/index.html within the repository.
