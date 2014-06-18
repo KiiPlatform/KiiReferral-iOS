@@ -20,63 +20,98 @@
 #import <Foundation/Foundation.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <KiiAnalytics/KiiAnalytics.h>
+#import <KiiSDK/Kii.h>
 
 #import "KRShareViewController.h"
 #import "KRStatisticObject.h"
 
-// pref keys
-#define KRConfigKey                     @"kiireferral-config"
-#define KRConfigRefreshedKey            @"kiireferral-config-refreshed"
-#define KRConfigCheckedConversionKey    @"kiireferral-config-referral-checked"
-
-// config keys
-#define KRConfigConversionURLKey        @"conversionURL"
-#define KRConfigDefaultMessageKey       @"defaultMessage"
-#define KRConfigGenerateURLKey          @"generateURL"
-
-@class KiiUser, KRStatisticObject;
-
-enum {
-    KRSourceFacebook = 1,
-    KRSourceTwitter = 2,
-    KRSourceDirect = 3,
-    KRSourceEmail = 4
-};
-typedef NSUInteger KRSource;
-
-typedef void (^KRFriendCallback)(NSArray *contacts, NSError *error);
+/** The callback used when statistics are pulled from the server.
+ 
+ If error == nil, the request was successful. The statistics will be returned in the form of a KRStatisticObject
+ */
 typedef void (^KRStatisticCallback)(KRStatisticObject *stats, NSError *error);
-typedef void (^KRLinkCallback)(NSString *urlString, NSError *error);
 
+/**
+ The main class that helps drive KiiReferral
+ */
 @interface KiiReferral : NSObject
 
+///---------------------------------------------------------------------------------------
+/// @name Required
+///---------------------------------------------------------------------------------------
+
+/** Initialize the KiiReferral SDK
+ 
+ Should be called in your AppDelegate's application:didFinishLaunchingWithOptions: method after Kii and KiiAnalytic libraries are initialized.
+ 
+ @param appID Your Kii Application ID
+ @param appKey Your Kii Application Key
+ */
++ (void) beginWithAppID:(NSString*)appID
+                 andKey:(NSString*)appKey;
+
+
+/** Handler for Facebook SDK
+ 
+ This method should be implemented in your AppDelegate as follows:
+
+    - (BOOL)application:(UIApplication *)application
+                openURL:(NSURL *)url
+      sourceApplication:(NSString *)sourceApplication
+             annotation:(id)annotation
+    {
+        [FBSession.activeSession setStateChangeHandler:^(FBSession *session, FBSessionState state, NSError *error) {
+            [KiiReferral facebookSessionChanged:session state:state error:error];
+        }];
+ 
+        return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    }
+
+ @param session The Facebook session passed in by the setStateChangeHandler block
+ @param state The Facebook session state passed in by the setStateChangeHandler block
+ @param error The error passed in by the setStateChangeHandler block
+ */
 + (void) facebookSessionChanged:(FBSession*)session
                           state:(FBSessionState)state
                           error:(NSError*)error;
 
-+ (BOOL) canAccessFacebook;
-+ (BOOL) canAccessTwitter;
-+ (void) getFacebookFriends:(KRFriendCallback)callback;
-+ (void) getTwitterFriends:(KRFriendCallback)callback;
-+ (void) setTwitterLoggedIn:(BOOL)loggedIn;
+///---------------------------------------------------------------------------------------
+/// @name Required
+///---------------------------------------------------------------------------------------
 
-+ (void) getUserTotals:(KiiUser*)user completionBlock:(KRStatisticCallback)complete;
+/** Retrieves the statistics for a given user
+ 
+ This is an asynchronous method that makes a server request. It will pull statistics like # of shares, clicks, and conversions. This can be useful for reward systems and user tracking
+ 
+ @param user The user to retrieve statistics for
+ @param complete A block to be called when the request is completed
+ */
++ (void) getUserTotals:(KiiUser*)user
+       completionBlock:(KRStatisticCallback)complete;
 
-+ (void) generateLink:(KRSource)source
-          withSubject:(NSString*)subject
-           andMessage:(NSString*)msg
-     andConfiguration:(NSString*)configuration
-        andCustomInfo:(NSDictionary*)customInfo
-      completionBlock:(KRLinkCallback)complete;
 
+///---------------------------------------------------------------------------------------
+/// @name Debug/Testing Methods
+///---------------------------------------------------------------------------------------
 
-+ (void) beginWithAppID:(NSString*)appID andKey:(NSString*)appKey;
-+ (void) completeShares;
+/** Turn on/off debug logging
+ 
+ Should only be used in development mode
 
+ @param loggingOn TRUE if logging should be turned on, FALSE otherwise
+*/
 + (void) setLogging:(BOOL)loggingOn;
-+ (void) forceCheckConversion;
-+ (void) forceConfigRefresh;
 
-+ (UIImage*) getBundleImage:(NSString*)name;
+/** Check for a potential conversion
+ 
+ Usually, the SDK only checks for conversions on the first application launch. In development/testing mode, it may be beneficial to check for this on each launch to expedite testing. This method will override the default and check for a conversion on demand.  This should not be called in production.
+ */
++ (void) forceCheckConversion;
+
+/** Load and store the latest referral configuration
+ 
+ Usually, the SDK only retrieves the configuration from the portal periodically. This method will override the default and get the latest configuration on demand. This is helpful for development mode when you are making changes in the dev portal and want to see the changes reflected on the client more quickly. This should not be called in production.
+ */
++ (void) forceConfigRefresh;
 
 @end

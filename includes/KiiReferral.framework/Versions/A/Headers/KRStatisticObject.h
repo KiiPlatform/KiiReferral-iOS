@@ -19,23 +19,56 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ A native object that holds various statistics related to KiiReferral
+ */
 @interface KRStatisticObject : NSObject
 
-// totals
+///---------------------------------------------------------------------------------------
+/// @name Totals
+///---------------------------------------------------------------------------------------
+
+/** Total number of shares */
 @property (nonatomic, assign) NSUInteger shareCount;
+
+/** Total number of conversions */
 @property (nonatomic, assign) NSUInteger conversionCount;
+
+/** Total number of clicks */
 @property (nonatomic, assign) NSUInteger clickCount;
 
-// network-based
+
+///---------------------------------------------------------------------------------------
+/// @name Network-based figures
+///---------------------------------------------------------------------------------------
+
+/** Total number of shares via facebook */
 @property (nonatomic, assign) NSUInteger facebookShares;
+
+/** Total number of clicks via facebook */
 @property (nonatomic, assign) NSUInteger facebookClicks;
+
+/** Total number of conversions via facebook */
 @property (nonatomic, assign) NSUInteger facebookConversions;
 
+/** Total number of shares via twitter */
 @property (nonatomic, assign) NSUInteger twitterShares;
+
+/** Total number of clicks via twitter */
 @property (nonatomic, assign) NSUInteger twitterClicks;
+
+/** Total number of conversions via twitter */
 @property (nonatomic, assign) NSUInteger twitterConversions;
 
+/** Prints a descriptive, readable string containing the statistics within this Statistic Object
+ */
 - (void) describe;
+
+/** Generates or prints a descriptive, readable string containing the statistics within this Statistic Object
+ 
+ @param returnString TRUE if a descriptive string should be returned, FALSE if the string should be printed to log
+ @return A descriptive string of the statistic object, if returnString is TRUE
+ */
 - (NSString*) describe:(BOOL)returnString;
 
 @end

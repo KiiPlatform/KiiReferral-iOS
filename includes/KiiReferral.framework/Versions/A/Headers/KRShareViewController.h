@@ -20,12 +20,30 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
+/**
+ The user interface and controller that drives the share view
+ */
 @interface KRShareViewController : UIViewController
 <MFMailComposeViewControllerDelegate>
 
+/** Any custom data to be tracked along with the share and referrals */
 @property (nonatomic, strong) NSDictionary *customInfo;
 
-+ (KRShareViewController*) shareViewWithConfigurationKey:(NSString*)configurationKey;
+/** Generates a new KRShareViewController
+ 
+ This method must be used to initialize a share view before it is shown to a user. Once initialized, the view can be presented to the user.
+ 
+ @return A new KRShareViewController object
+ */
 + (KRShareViewController*) shareView;
+
+/** Generates a new KRShareViewController with a custom configuration key
+ 
+ This method must be used to initialize a share view before it is shown to a user. Once initialized, the view can be presented to the user.
+
+ @param configurationKey A file-specific URI
+ @return A new KRShareViewController object
+ */
++ (KRShareViewController*) shareViewWithConfigurationKey:(NSString*)configurationKey;
 
 @end
