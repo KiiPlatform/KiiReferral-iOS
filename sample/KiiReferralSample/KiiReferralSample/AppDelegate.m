@@ -37,11 +37,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSString *kiiAppID = @"";
-    NSString *kiiAppKey = @"";
+    NSString *kiiAppID = @"xyz";
+    NSString *kiiAppKey = @"123";
     
     NSAssert(![kiiAppID isEqualToString:@""] && ![kiiAppKey isEqualToString:@""],
              @"Enter your Kii App credentials to the sample AppDelegate.m!");
+    
+    // ensure we have a fb id
+    NSString *fbAppID = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"FacebookAppID"];
+    NSArray *urlTypes = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleURLTypes"];
+    
+    NSString *fbURL = [[[urlTypes lastObject] objectForKey:@"CFBundleURLSchemes"] lastObject];
+
+    NSAssert(![fbAppID isEqualToString:@"YOUR_FACEBOOK_APP_ID"] && ![fbURL isEqualToString:@"YOUR_FACEBOOK_URL_SCHEME"],
+             @"Enter your Facebook App ID and URL scheme to KiiReferralSample-Info.plist");
     
     // Override point for customization after application launch.
     // Initialize the Kii SDK!

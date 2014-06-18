@@ -15,13 +15,13 @@
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>FacebookAppID</key>
-	<string>597237673695253</string>
+	<string>YOUR_FACEBOOK_APP_ID</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb597237673695253</string>
+				<string>YOUR_FACEBOOK_URL_SCHEME</string>
 			</array>
 		</dict>
 	</array>
