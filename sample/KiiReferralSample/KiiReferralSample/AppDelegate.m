@@ -22,7 +22,7 @@
     
     // try to authenticate
     [KiiUser authenticateSynchronous:username withPassword:password andError:&err];
-
+    
     // if we couldn't authenticate, the user may not exist
     if(err != nil) {
         err = nil; // reset the tracking error
@@ -56,8 +56,10 @@
     [KiiReferral beginWithAppID:kiiAppID
                          andKey:kiiAppKey];
     
+    [KiiReferral forceConfigRefresh];
+    
     // use this to turn on logging while we're developing
-    [KiiReferral setLogging:TRUE]; // default is FALSE
+//    [KiiReferral setLogging:TRUE]; // default is FALSE
     
     // use this while testing to force conversion checking.
     // otherwise, the app will only check once (upon installation)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA955CA319519AD70001F056 /* KiiAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA955CA219519AD70001F056 /* KiiAnalytics.framework */; };
 		CACD7DBB19328A360025B13A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DBA19328A360025B13A /* Foundation.framework */; };
 		CACD7DBD19328A360025B13A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DBC19328A360025B13A /* CoreGraphics.framework */; };
 		CACD7DBF19328A360025B13A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DBE19328A360025B13A /* UIKit.framework */; };
@@ -21,7 +22,6 @@
 		CACD7DDC19328A360025B13A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DBE19328A360025B13A /* UIKit.framework */; };
 		CACD7DE419328A360025B13A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CACD7DE219328A360025B13A /* InfoPlist.strings */; };
 		CACD7DE619328A360025B13A /* KiiReferralSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CACD7DE519328A360025B13A /* KiiReferralSampleTests.m */; };
-		CACD7DF519328BFF0025B13A /* KiiAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DF319328BFF0025B13A /* KiiAnalytics.framework */; };
 		CACD7DF619328BFF0025B13A /* KiiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DF419328BFF0025B13A /* KiiSDK.framework */; };
 		CACD7DF819328C250025B13A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DF719328C250025B13A /* FacebookSDK.framework */; };
 		CACD7DFA19328C4A0025B13A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DF919328C4A0025B13A /* AddressBook.framework */; };
@@ -44,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA955CA219519AD70001F056 /* KiiAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiAnalytics.framework; sourceTree = "<group>"; };
 		CACD7DB719328A360025B13A /* KiiReferralSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KiiReferralSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CACD7DBA19328A360025B13A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CACD7DBC19328A360025B13A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,7 +64,6 @@
 		CACD7DE119328A360025B13A /* KiiReferralSampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KiiReferralSampleTests-Info.plist"; sourceTree = "<group>"; };
 		CACD7DE319328A360025B13A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CACD7DE519328A360025B13A /* KiiReferralSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KiiReferralSampleTests.m; sourceTree = "<group>"; };
-		CACD7DF319328BFF0025B13A /* KiiAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiAnalytics.framework; sourceTree = "<group>"; };
 		CACD7DF419328BFF0025B13A /* KiiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiSDK.framework; sourceTree = "<group>"; };
 		CACD7DF719328C250025B13A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		CACD7DF919328C4A0025B13A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -87,8 +87,8 @@
 				CACD7DFA19328C4A0025B13A /* AddressBook.framework in Frameworks */,
 				CACD7DBD19328A360025B13A /* CoreGraphics.framework in Frameworks */,
 				CACD7DBF19328A360025B13A /* UIKit.framework in Frameworks */,
+				CA955CA319519AD70001F056 /* KiiAnalytics.framework in Frameworks */,
 				CACD7DBB19328A360025B13A /* Foundation.framework in Frameworks */,
-				CACD7DF519328BFF0025B13A /* KiiAnalytics.framework in Frameworks */,
 				CAD42F17193D1581003DAD9F /* KiiReferral.framework in Frameworks */,
 				CACD7DF619328BFF0025B13A /* KiiSDK.framework in Frameworks */,
 				CACD7DF819328C250025B13A /* FacebookSDK.framework in Frameworks */,
@@ -130,6 +130,7 @@
 		CACD7DB919328A360025B13A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA955CA219519AD70001F056 /* KiiAnalytics.framework */,
 				CAD42F16193D1581003DAD9F /* KiiReferral.framework */,
 				CACD7E5B1932C18F0025B13A /* KiiReferral.bundle */,
 				CACD7E0119328C760025B13A /* libsqlite3.dylib */,
@@ -138,7 +139,6 @@
 				CACD7DFB19328C530025B13A /* Social.framework */,
 				CACD7DF919328C4A0025B13A /* AddressBook.framework */,
 				CACD7DF719328C250025B13A /* FacebookSDK.framework */,
-				CACD7DF319328BFF0025B13A /* KiiAnalytics.framework */,
 				CACD7DF419328BFF0025B13A /* KiiSDK.framework */,
 				CACD7DBA19328A360025B13A /* Foundation.framework */,
 				CACD7DBC19328A360025B13A /* CoreGraphics.framework */,

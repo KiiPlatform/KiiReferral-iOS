@@ -19,9 +19,10 @@
 
 - (IBAction)showShareDialog:(id)sender
 {
-    NSDictionary *myDataDict = @{@"user_type": @"pro", @"player_score": [NSNumber numberWithInteger:293]};
+//    NSDictionary *myDataDict = @{@"user_type": @"pro", @"player_score": [NSNumber numberWithInteger:293]};
     
-    KRShareViewController *vc = [KRShareViewController shareViewWithConfigurationKey:@"points_earned"];
+//    KRShareViewController *vc = [KRShareViewController shareViewWithConfigurationKey:@"points_earned"];
+    KRShareViewController *vc = [KRShareViewController shareView];
     //    [vc setCustomInfo:myDataDict];
     [self presentViewController:vc animated:TRUE completion:nil];
 }
