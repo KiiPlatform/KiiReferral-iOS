@@ -37,8 +37,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSString *kiiAppID = @"xyz";
-    NSString *kiiAppKey = @"123";
+    NSString *kiiAppID = @"e24d1f2c";
+    NSString *kiiAppKey = @"9636e44b3c07384bc266e711d4b19457";
     
     NSAssert(![kiiAppID isEqualToString:@""] && ![kiiAppKey isEqualToString:@""],
              @"Enter your Kii App credentials to the sample AppDelegate.m!");
@@ -72,7 +72,7 @@
     [KiiReferral forceConfigRefresh];
     
     // use this to turn on logging while we're developing
-//    [KiiReferral setLogging:TRUE]; // default is FALSE
+    [KiiReferral setLogging:TRUE]; // default is FALSE
     
     // use this while testing to force conversion checking.
     // otherwise, the app will only check once (upon installation)
