@@ -37,8 +37,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSString *kiiAppID = @"e24d1f2c";
-    NSString *kiiAppKey = @"9636e44b3c07384bc266e711d4b19457";
+    NSString *kiiAppID = @"";
+    NSString *kiiAppKey = @"";
     
     NSAssert(![kiiAppID isEqualToString:@""] && ![kiiAppKey isEqualToString:@""],
              @"Enter your Kii App credentials to the sample AppDelegate.m!");
