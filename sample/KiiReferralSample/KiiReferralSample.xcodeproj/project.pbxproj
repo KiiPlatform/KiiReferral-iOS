@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA770304197D708700027055 /* KiiReferral.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CA770302197D708700027055 /* KiiReferral.bundle */; };
+		CA770305197D708700027055 /* KiiReferral.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA770303197D708700027055 /* KiiReferral.framework */; };
 		CA955CA319519AD70001F056 /* KiiAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA955CA219519AD70001F056 /* KiiAnalytics.framework */; };
 		CACD7DBB19328A360025B13A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DBA19328A360025B13A /* Foundation.framework */; };
 		CACD7DBD19328A360025B13A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DBC19328A360025B13A /* CoreGraphics.framework */; };
@@ -29,8 +31,6 @@
 		CACD7DFE19328C5E0025B13A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DFD19328C5E0025B13A /* SystemConfiguration.framework */; };
 		CACD7E0019328C6B0025B13A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DFF19328C6A0025B13A /* MobileCoreServices.framework */; };
 		CACD7E0219328C760025B13A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7E0119328C760025B13A /* libsqlite3.dylib */; };
-		CACD7E5D1932C18F0025B13A /* KiiReferral.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CACD7E5B1932C18F0025B13A /* KiiReferral.bundle */; };
-		CAD42F17193D1581003DAD9F /* KiiReferral.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD42F16193D1581003DAD9F /* KiiReferral.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA770302197D708700027055 /* KiiReferral.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KiiReferral.bundle; sourceTree = "<group>"; };
+		CA770303197D708700027055 /* KiiReferral.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiReferral.framework; sourceTree = "<group>"; };
 		CA955CA219519AD70001F056 /* KiiAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiAnalytics.framework; sourceTree = "<group>"; };
 		CACD7DB719328A360025B13A /* KiiReferralSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KiiReferralSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CACD7DBA19328A360025B13A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,8 +73,6 @@
 		CACD7DFD19328C5E0025B13A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CACD7DFF19328C6A0025B13A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CACD7E0119328C760025B13A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		CACD7E5B1932C18F0025B13A /* KiiReferral.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KiiReferral.bundle; sourceTree = "<group>"; };
-		CAD42F16193D1581003DAD9F /* KiiReferral.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiReferral.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 				CACD7DBF19328A360025B13A /* UIKit.framework in Frameworks */,
 				CA955CA319519AD70001F056 /* KiiAnalytics.framework in Frameworks */,
 				CACD7DBB19328A360025B13A /* Foundation.framework in Frameworks */,
-				CAD42F17193D1581003DAD9F /* KiiReferral.framework in Frameworks */,
+				CA770305197D708700027055 /* KiiReferral.framework in Frameworks */,
 				CACD7DF619328BFF0025B13A /* KiiSDK.framework in Frameworks */,
 				CACD7DF819328C250025B13A /* FacebookSDK.framework in Frameworks */,
 			);
@@ -130,9 +130,9 @@
 		CACD7DB919328A360025B13A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA770302197D708700027055 /* KiiReferral.bundle */,
+				CA770303197D708700027055 /* KiiReferral.framework */,
 				CA955CA219519AD70001F056 /* KiiAnalytics.framework */,
-				CAD42F16193D1581003DAD9F /* KiiReferral.framework */,
-				CACD7E5B1932C18F0025B13A /* KiiReferral.bundle */,
 				CACD7E0119328C760025B13A /* libsqlite3.dylib */,
 				CACD7DFF19328C6A0025B13A /* MobileCoreServices.framework */,
 				CACD7DFD19328C5E0025B13A /* SystemConfiguration.framework */,
@@ -269,7 +269,7 @@
 			files = (
 				CACD7DD319328A360025B13A /* Images.xcassets in Resources */,
 				CACD7DC519328A360025B13A /* InfoPlist.strings in Resources */,
-				CACD7E5D1932C18F0025B13A /* KiiReferral.bundle in Resources */,
+				CA770304197D708700027055 /* KiiReferral.bundle in Resources */,
 				CACD7DCE19328A360025B13A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +424,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KiiReferralSample/KiiReferralSample-Prefix.pch";
 				INFOPLIST_FILE = "KiiReferralSample/KiiReferralSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -434,6 +435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -442,6 +444,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KiiReferralSample/KiiReferralSample-Prefix.pch";
 				INFOPLIST_FILE = "KiiReferralSample/KiiReferralSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
