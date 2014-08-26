@@ -3,7 +3,7 @@
 
 - Generate campaigns and referral links from the developer portal
 - Track shares, clicks and conversions in real-time
-- Allow users to share links via Facebook, Twitter and email directly from the app
+- Allow users to share links via Facebook, Twitter, SMS and email directly from the app
 - Track conversions on a user-level via the SDK
 	- Trigger events when conversions occur (i.e. give bonus points, extra features, etc)
 

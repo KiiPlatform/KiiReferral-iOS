@@ -40,8 +40,8 @@
     NSString *kiiAppID = @"";
     NSString *kiiAppKey = @"";
     
-    NSAssert(![kiiAppID isEqualToString:@""] && ![kiiAppKey isEqualToString:@""],
-             @"Enter your Kii App credentials to the sample AppDelegate.m!");
+//    NSAssert(![kiiAppID isEqualToString:@""] && ![kiiAppKey isEqualToString:@""],
+//             @"Enter your Kii App credentials to the sample AppDelegate.m!");
     
     // ensure we have a fb id
     NSString *fbAppID = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"FacebookAppID"];
@@ -82,29 +82,6 @@
     [self authenticate]; // this is a synchronous call, so will block the UI thread
     
     return YES;
-}
-							
-
-// During the Facebook login flow, your app passes control to the Facebook iOS app or Facebook in a mobile browser.
-// After authentication, your app will be called back with the session information.
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
-{
-    // Note this handler block should be the exact same as the handler passed to any open calls.
-    [FBSession.activeSession setStateChangeHandler:
-     ^(FBSession *session, FBSessionState state, NSError *error) {
-         [KiiReferral facebookSessionChanged:session state:state error:error];
-     }];
-    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Handle the user leaving the app while the Facebook login dialog is being shown
-    // For example: when the user presses the iOS "home" button while the login dialog is active
-    [FBAppCall handleDidBecomeActive];
 }
 
 @end
