@@ -24,7 +24,7 @@
  The user interface and controller that drives the share view
  */
 @interface KRShareViewController : UIViewController
-<MFMailComposeViewControllerDelegate>
+<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 
 /** Any custom data to be tracked along with the share and referrals */
 @property (nonatomic, strong) NSDictionary *customInfo;
@@ -45,5 +45,7 @@
  @return A new KRShareViewController object
  */
 + (KRShareViewController*) shareViewWithConfigurationKey:(NSString*)configurationKey;
+
+- (void) setMessage:(NSString*)message;
 
 @end

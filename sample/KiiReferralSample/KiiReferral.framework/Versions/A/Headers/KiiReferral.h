@@ -114,4 +114,6 @@ typedef void (^KRStatisticCallback)(KRStatisticObject *stats, NSError *error);
  */
 + (void) forceConfigRefresh;
 
++ (void) startShare;
+
 @end

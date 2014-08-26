@@ -29,8 +29,8 @@
 		CACD7DFE19328C5E0025B13A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DFD19328C5E0025B13A /* SystemConfiguration.framework */; };
 		CACD7E0019328C6B0025B13A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7DFF19328C6A0025B13A /* MobileCoreServices.framework */; };
 		CACD7E0219328C760025B13A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD7E0119328C760025B13A /* libsqlite3.dylib */; };
-		CACD7E5D1932C18F0025B13A /* KiiReferral.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CACD7E5B1932C18F0025B13A /* KiiReferral.bundle */; };
-		CAD42F17193D1581003DAD9F /* KiiReferral.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD42F16193D1581003DAD9F /* KiiReferral.framework */; };
+		CACFA08419AC667A005FE8AF /* KiiReferral.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CACFA08219AC667A005FE8AF /* KiiReferral.bundle */; };
+		CACFA08719AC6724005FE8AF /* KiiReferral.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACFA08619AC6724005FE8AF /* KiiReferral.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +71,8 @@
 		CACD7DFD19328C5E0025B13A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CACD7DFF19328C6A0025B13A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CACD7E0119328C760025B13A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		CACD7E5B1932C18F0025B13A /* KiiReferral.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KiiReferral.bundle; sourceTree = "<group>"; };
-		CAD42F16193D1581003DAD9F /* KiiReferral.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiReferral.framework; sourceTree = "<group>"; };
+		CACFA08219AC667A005FE8AF /* KiiReferral.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KiiReferral.bundle; sourceTree = "<group>"; };
+		CACFA08619AC6724005FE8AF /* KiiReferral.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiReferral.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 				CACD7DBF19328A360025B13A /* UIKit.framework in Frameworks */,
 				CA955CA319519AD70001F056 /* KiiAnalytics.framework in Frameworks */,
 				CACD7DBB19328A360025B13A /* Foundation.framework in Frameworks */,
-				CAD42F17193D1581003DAD9F /* KiiReferral.framework in Frameworks */,
+				CACFA08719AC6724005FE8AF /* KiiReferral.framework in Frameworks */,
 				CACD7DF619328BFF0025B13A /* KiiSDK.framework in Frameworks */,
 				CACD7DF819328C250025B13A /* FacebookSDK.framework in Frameworks */,
 			);
@@ -130,9 +130,9 @@
 		CACD7DB919328A360025B13A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CACFA08619AC6724005FE8AF /* KiiReferral.framework */,
+				CACFA08219AC667A005FE8AF /* KiiReferral.bundle */,
 				CA955CA219519AD70001F056 /* KiiAnalytics.framework */,
-				CAD42F16193D1581003DAD9F /* KiiReferral.framework */,
-				CACD7E5B1932C18F0025B13A /* KiiReferral.bundle */,
 				CACD7E0119328C760025B13A /* libsqlite3.dylib */,
 				CACD7DFF19328C6A0025B13A /* MobileCoreServices.framework */,
 				CACD7DFD19328C5E0025B13A /* SystemConfiguration.framework */,
@@ -269,7 +269,7 @@
 			files = (
 				CACD7DD319328A360025B13A /* Images.xcassets in Resources */,
 				CACD7DC519328A360025B13A /* InfoPlist.strings in Resources */,
-				CACD7E5D1932C18F0025B13A /* KiiReferral.bundle in Resources */,
+				CACFA08419AC667A005FE8AF /* KiiReferral.bundle in Resources */,
 				CACD7DCE19328A360025B13A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
