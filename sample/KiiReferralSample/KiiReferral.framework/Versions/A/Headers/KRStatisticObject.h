@@ -60,6 +60,24 @@
 /** Total number of conversions via twitter */
 @property (nonatomic, assign) NSUInteger twitterConversions;
 
+/** Total number of shares via email */
+@property (nonatomic, assign) NSUInteger emailShares;
+
+/** Total number of clicks via email */
+@property (nonatomic, assign) NSUInteger emailClicks;
+
+/** Total number of conversions via email */
+@property (nonatomic, assign) NSUInteger emailConversions;
+
+/** Total number of shares via sms */
+@property (nonatomic, assign) NSUInteger smsShares;
+
+/** Total number of clicks via sms */
+@property (nonatomic, assign) NSUInteger smsClicks;
+
+/** Total number of conversions via sms */
+@property (nonatomic, assign) NSUInteger smsConversions;
+
 /** Prints a descriptive, readable string containing the statistics within this Statistic Object
  */
 - (void) describe;

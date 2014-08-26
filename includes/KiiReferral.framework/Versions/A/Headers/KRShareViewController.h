@@ -46,6 +46,10 @@
  */
 + (KRShareViewController*) shareViewWithConfigurationKey:(NSString*)configurationKey;
 
+/** Set the message to be displayed to the user within the view controller
+ 
+ @param message The message to display within the UI
+ */
 - (void) setMessage:(NSString*)message;
 
 @end
