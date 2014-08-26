@@ -72,7 +72,7 @@
     [KiiReferral forceConfigRefresh];
     
     // use this to turn on logging while we're developing
-//    [KiiReferral setLogging:TRUE]; // default is FALSE
+    [KiiReferral setLogging:TRUE]; // default is FALSE
     
     // use this while testing to force conversion checking.
     // otherwise, the app will only check once (upon installation)
